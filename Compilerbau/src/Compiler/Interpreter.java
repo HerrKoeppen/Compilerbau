@@ -113,18 +113,31 @@ public class Interpreter {
 
 				return false;
 
-			case text:
-
-				String variablenbezeichner = knoten.getToken().getText();
-
-				Object wert = variablenbelegung.get(variablenbezeichner);
-
-				if (wert == null) {
-					throw new Exception("Die Belegung der Variable "
-							+ variablenbezeichner + " ist nicht bekannt.");
-				}
-
-				return wert;
+//			case text:
+//
+//				String variablenbezeichner = knoten.getToken().getText();
+//
+//				Object wert = variablenbelegung.get(variablenbezeichner);
+//
+//				if (wert == null) {
+//					throw new Exception("Die Belegung der Variable "
+//							+ variablenbezeichner + " ist nicht bekannt.");
+//				}
+//
+//				return wert;
+                                
+                        case text:
+                                return knoten.getToken().getText();
+                        
+                        case zeichen:
+                                return knoten.getToken().getChar();
+                                
+                        case bool:
+                                return knoten.getToken().getBool();
+                        
+                        case klaus:
+                                return null;
+                                
 
 			case zahl:
 				return knoten.getToken().getZahl();
@@ -132,7 +145,7 @@ public class Interpreter {
                         case liste:
                                 knoten.getRechts().add(knoten.getLinks());
 
-			case whileKeyword:
+			case whileSchleife:
 				/**
 				 * Im linken Knoten hat der Parser die Bedingung (also den Term
 				 * innerhalb von "(...)") abgelegt:
@@ -156,7 +169,7 @@ public class Interpreter {
 
 				return null;
 
-			case zuweisung:
+			case setze:
 				String variablenbezeichner1 = knoten.getLinks().getToken()
 						.getText();
 
