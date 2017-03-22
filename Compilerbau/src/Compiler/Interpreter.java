@@ -130,7 +130,7 @@ public class Interpreter {
 				return knoten.getToken().getZahl();
                                 
                         case liste:
-                                ar = []
+                                knoten.getRechts().add(knoten.getLinks());
 
 			case whileKeyword:
 				/**
