@@ -1,9 +1,9 @@
-package parser;
+package BeispielCompiler1;
 
 import java.util.ArrayList;
 
-import lexer.Token;
-import lexer.TokenType;
+import BeispielCompiler1.Token;
+import BeispielCompiler1.TokenType;
 
 public class Parser {
 
@@ -14,7 +14,7 @@ public class Parser {
 
 	/**
 	 * Zur Speicherung des Parse-Baums (Abstract Syntax Tree) reicht es, die
-	 * Wurzel zu speichern. Über sie bekommt man jeden beliebigen Knoten
+	 * Wurzel zu speichern. ï¿½ber sie bekommt man jeden beliebigen Knoten
 	 * darunter.
 	 */
 	private Knoten wurzel;
@@ -40,8 +40,8 @@ public class Parser {
 	}
 
 	/**
-	 * Parst die dem Konstruktor übergebene Liste von Tokens und gibt einen
-	 * Parse-Baum (Abstract Syntax Tree) zurück.
+	 * Parst die dem Konstruktor ï¿½bergebene Liste von Tokens und gibt einen
+	 * Parse-Baum (Abstract Syntax Tree) zurï¿½ck.
 	 * 
 	 * @return Parse-Baum (Abstract Syntax Tree)
 	 * @throws Exception
@@ -56,10 +56,10 @@ public class Parser {
 	}
 
 	/**
-	 * Versucht, eine Summe oder Differenz zu parsen. Parst zunächst den ersten
+	 * Versucht, eine Summe oder Differenz zu parsen. Parst zunï¿½chst den ersten
 	 * Operanden (unter der Annahme, dass es eine Multiplikation oder Division
 	 * ist) und sieht dann nach, ob ein Pluszeichen oder ein Minuszeichen kommt.
-	 * Falls "ja", parst es den zweiten Operanden und fügt alle drei zu einem
+	 * Falls "ja", parst es den zweiten Operanden und fï¿½gt alle drei zu einem
 	 * Baum zusammen.
 	 * 
 	 * Folgt ein weiteres Plus oder Minus, wird der Baum als erster Operand
@@ -67,7 +67,7 @@ public class Parser {
 	 * dazu gesucht usw.
 	 * 
 	 * Folgt kein weiteres Plus oder Minus, so endet die Methode und der
-	 * aktuelle Baum wird zurückgegeben.
+	 * aktuelle Baum wird zurï¿½ckgegeben.
 	 * 
 	 * @return Geparster Teilbaum
 	 * @throws Exception
@@ -95,7 +95,7 @@ public class Parser {
 	}
 
 	/**
-	 * Wie PlusMinus, jedoch für Mal und geteilt. Als erster bzw. zweiter
+	 * Wie PlusMinus, jedoch fï¿½r Mal und geteilt. Als erster bzw. zweiter
 	 * Operand wird nach einem einfachen Term (Klammerterm, Zahl, Variable oder
 	 * Negation) gesucht.
 	 * 
@@ -134,7 +134,7 @@ public class Parser {
 			nextToken();
 			Knoten knoten = summeDifferenz(); // In der Klammer kann sich wieder eine
 											// Summe/Differenz befinden...
-			erwarte(TokenType.klammerZu); // Überliest die schließende Klammer
+			erwarte(TokenType.klammerZu); // ï¿½berliest die schlieï¿½ende Klammer
 			return knoten;
 		case text:
 			return new Knoten(nextToken());
@@ -142,7 +142,7 @@ public class Parser {
 			return new Knoten(nextToken());
 		case minus:
 			Knoten knoten1 = new Knoten(new Token(TokenType.negation));
-			nextToken(); // überliest das Minuszeichen
+			nextToken(); // ï¿½berliest das Minuszeichen
 			knoten1.setLinks(einfacherTerm()); // die Negation wirkt auf den einfachen
 										// Term danach
 			return knoten1;
@@ -153,7 +153,7 @@ public class Parser {
 	}
 
 	/**
-	 * Gibt das nächste Token aus der Tokenliste zurück, erhöht aber nicht die
+	 * Gibt das nï¿½chste Token aus der Tokenliste zurï¿½ck, erhï¿½ht aber nicht die
 	 * Leseposition
 	 * 
 	 * @return
@@ -170,7 +170,7 @@ public class Parser {
 	}
 
 	/**
-	 * Gibt das nächste Token aus der Tokenliste zurück und erhöht(!) die
+	 * Gibt das nï¿½chste Token aus der Tokenliste zurï¿½ck und erhï¿½ht(!) die
 	 * Leseposition
 	 * 
 	 * @return
@@ -192,8 +192,8 @@ public class Parser {
 	}
 
 	/**
-	 * Wirft eine Exception, wenn das nächste Token in der Tokenliste nicht dem
-	 * übergebenen Typ entspricht.
+	 * Wirft eine Exception, wenn das nï¿½chste Token in der Tokenliste nicht dem
+	 * ï¿½bergebenen Typ entspricht.
 	 * 
 	 * @param tokenType
 	 * @throws Exception
@@ -229,10 +229,10 @@ public class Parser {
 	}
 
 	/**
-	 * Traversiert vom übergebenen Knoten ausgehend den Teilbaum in pre-order
+	 * Traversiert vom ï¿½bergebenen Knoten ausgehend den Teilbaum in pre-order
 	 * Reihenfolge, d.h. zuerst wird der Konten selbst besucht, dann der
-	 * komplette linke Teilbaum, der dranhängt, dann der komplette rechte
-	 * Teilbaum, der dranhängt.
+	 * komplette linke Teilbaum, der dranhï¿½ngt, dann der komplette rechte
+	 * Teilbaum, der dranhï¿½ngt.
 	 * 
 	 * @param knoten
 	 * @param einruecken

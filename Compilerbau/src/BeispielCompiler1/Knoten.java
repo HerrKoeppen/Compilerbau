@@ -1,6 +1,6 @@
-package parser;
+package BeispielCompiler1;
 
-import lexer.Token;
+import BeispielCompiler1.Token;
 
 public class Knoten {
 

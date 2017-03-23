@@ -1,7 +1,7 @@
-package interpreter;
+package BeispielCompiler1;
 
-import lexer.Lexer;
-import parser.Parser;
+import BeispielCompiler1.Lexer;
+import BeispielCompiler1.Parser;
 
 public class InterpreterTest {
 

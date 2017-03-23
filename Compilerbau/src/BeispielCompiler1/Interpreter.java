@@ -1,8 +1,8 @@
-package interpreter;
+package BeispielCompiler1;
 
 import java.util.HashMap;
 
-import parser.Knoten;
+import BeispielCompiler1.Knoten;
 
 public class Interpreter {
 
