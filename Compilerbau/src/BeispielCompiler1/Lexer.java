@@ -1,4 +1,4 @@
-package lexer;
+package BeispielCompiler1;
 
 import java.util.ArrayList;
 
@@ -38,12 +38,12 @@ public class Lexer {
 	}
 
 	/**
-	 * Zerlegt den Programmtext, der dem Konstruktor übergeben wurde
+	 * Zerlegt den Programmtext, der dem Konstruktor ï¿½bergeben wurde
 	 * 
 	 * @return Liste mit Tokens
 	 * @throws Exception
-	 *             Eine Exception wird ausgelöst, wenn der Programmtext Passagen
-	 *             enthält, aus denen keine Token gebildet werden können.
+	 *             Eine Exception wird ausgelï¿½st, wenn der Programmtext Passagen
+	 *             enthï¿½lt, aus denen keine Token gebildet werden kï¿½nnen.
 	 */
 	public ArrayList<Token> lex() throws Exception {
 
@@ -53,7 +53,7 @@ public class Lexer {
 		while (position < text.length()) {
 
 			/**
-			 * peek() liest das nächste Zeichen im Programmtext, erhöht die
+			 * peek() liest das nï¿½chste Zeichen im Programmtext, erhï¿½ht die
 			 * Variable position aber nicht. Ruft man peek() mehrmals
 			 * hintereinander auf, liefert es also immer dasselbe Zeichen.
 			 */
@@ -86,7 +86,7 @@ public class Lexer {
 				case ' ':
 				case '\n':
 				case '\r':
-					// Leerzeichen werden einfach überlesen
+					// Leerzeichen werden einfach ï¿½berlesen
 					break;
 				default:
 					throw new Exception("Der Lexer kann mit dem Zeichen '" + c
@@ -94,7 +94,7 @@ public class Lexer {
 				}
 
 				position++; // Das von peek() oben gelesene Zeichen ist
-							// verarbeitet, also jetzt das nächste holen.
+							// verarbeitet, also jetzt das nï¿½chste holen.
 
 			}
 
@@ -105,7 +105,7 @@ public class Lexer {
 	}
 
 	/**
-	 * Die Methode lexVariable geht davon aus, dass das nächste zu verarbeitende
+	 * Die Methode lexVariable geht davon aus, dass das nï¿½chste zu verarbeitende
 	 * Zeichen ein Buchstabe ist. Solange weitere Buchstaben oder Ziffern
 	 * kommen, liest sie sie und setzt sie zu einem Variablennamen zusammen.
 	 */
@@ -138,7 +138,7 @@ public class Lexer {
 
 		/**
 		 * Hier machen wir es uns leicht und lassen Java den String in eine Zahl
-		 * konvertieren. Die Methode parseDouble ist für sich genommen natürlich
+		 * konvertieren. Die Methode parseDouble ist fï¿½r sich genommen natï¿½rlich
 		 * auch ein Lexer.
 		 */
 		double zahl = Double.parseDouble(zahlAlsString);
@@ -148,7 +148,7 @@ public class Lexer {
 	}
 
 	/**
-	 * Fügt der tokenListe das übergebene Token hinzu
+	 * Fï¿½gt der tokenListe das ï¿½bergebene Token hinzu
 	 * 
 	 * @param tokenType
 	 */
@@ -158,11 +158,11 @@ public class Lexer {
 	}
 
 	/**
-	 * peek() liest das nächste Zeichen im Programmtext, erhöht die Variable
+	 * peek() liest das nï¿½chste Zeichen im Programmtext, erhï¿½ht die Variable
 	 * position aber nicht. Ruft man peek() mehrmals hintereinander auf, liefert
 	 * es also immer dasselbe Zeichen.
 	 * 
-	 * @return nächstes Zeichen im Programmtext
+	 * @return nï¿½chstes Zeichen im Programmtext
 	 */
 	private char peek() {
 		if (position < text.length()) {
@@ -193,7 +193,7 @@ public class Lexer {
 	}
 
 	/**
-	 * Vorsicht: Die übergebene Liste ist nur dann gefüllt, wenn zuvor die
+	 * Vorsicht: Die ï¿½bergebene Liste ist nur dann gefï¿½llt, wenn zuvor die
 	 * Methode lex aufgerufen wurde.
 	 * 
 	 * @return Liste mit den Tokens, in die der Lexer den Programmtext zerlegt

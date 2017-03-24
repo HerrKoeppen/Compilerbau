@@ -1,6 +1,6 @@
-package parser;
+package BeispielCompiler1;
 
-import lexer.Lexer;
+import BeispielCompiler1.Lexer;
 
 public class ParserTest {
 

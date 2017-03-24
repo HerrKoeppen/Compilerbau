@@ -1,10 +1,10 @@
-package lexer;
+package BeispielCompiler1;
 
 public enum TokenType {
 	zahl, text, plus, minus, mal, geteilt, klammerAuf, klammerZu, 
 	
 	/**
-	 * Nur als Knotentyp für Knoten des Syntaxbaums:
+	 * Nur als Knotentyp fï¿½r Knoten des Syntaxbaums:
 	 */
 	negation
 }
