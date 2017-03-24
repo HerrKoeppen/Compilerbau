@@ -193,10 +193,17 @@ public class Interpreter {
                             if (interpretiere(knoten.getLinks)){
                                 interpretiere(knoten.getRechts);
                             }
-                            interpretiere(knoten.getNaechsteAnweisung);
+                            interpretiere(knoten.getNaechsteAnweisung());
                         
                         case sonst:
-                            if
+                           
+                            
+                        case forSchleife:
+                            for (interpretiere(knoten.getLinks())) {
+                                interpretiere(knoten.getRechts());
+                            }
+                            interpretiere(knoten.getNaechsteAnweisung());         
+                                        
 
 //			case printKeyword:
 //				
