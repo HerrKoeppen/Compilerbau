@@ -105,13 +105,13 @@ public class Interpreter {
 							.getRechts());
 				}
 
-			case trueKeyword:
-
-				return true;
-
-			case falseKeyword:
-
-				return false;
+//			case trueKeyword:
+//
+//				return true;
+//
+//			case falseKeyword:
+//
+//				return false;
 
 //			case text:
 //
@@ -138,7 +138,6 @@ public class Interpreter {
                         case klaus:
                                 return null;
                                 
-
 			case zahl:
 				return knoten.getToken().getZahl();
                                 
@@ -186,20 +185,32 @@ public class Interpreter {
 				interpretiere(knoten.getNaechsteAnweisung());
 
 				return wert1;
+                        
+                        case hole:
+                                return interpretiere(knoten.getLinks);
+                        
+                        case falls:
+                            if (interpretiere(knoten.getLinks)){
+                                interpretiere(knoten.getRechts);
+                            }
+                            interpretiere(knoten.getNaechsteAnweisung);
+                        
+                        case sonst:
+                            if
 
-			case printKeyword:
-				
-				/**
-				 * Im linken Knoten steckt der Term, dessen Wert ausgegeben werden soll
-				 */
-				System.out.println(interpretiere(knoten.getLinks()));
-
-				/**
-				 * Führe die Anweisungen aus, die nach der Print-Anweisung kommen:
-				 */
-				interpretiere(knoten.getNaechsteAnweisung());
-
-				return null;
+//			case printKeyword:
+//				
+//				/**
+//				 * Im linken Knoten steckt der Term, dessen Wert ausgegeben werden soll
+//				 */
+//				System.out.println(interpretiere(knoten.getLinks()));
+//
+//				/**
+//				 * Führe die Anweisungen aus, die nach der Print-Anweisung kommen:
+//				 */
+//				interpretiere(knoten.getNaechsteAnweisung());
+//
+//				return null;
 
 			default:
 				return null; // sollte nie vorkommen
