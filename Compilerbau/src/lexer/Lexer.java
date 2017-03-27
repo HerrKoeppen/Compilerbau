@@ -185,23 +185,36 @@ public class Lexer {
 	 * Die Methode lexZahl liest eine Zahl
 	 */
 	private void lexZahl() {
-
+                boolean fl=false;
 		String zahlAlsString = "";
 
-		do {
+		do 
+                {
 			char c = peek();
 			zahlAlsString += c;
+                        if (c=='.')
+                        {
+                            fl=true;    
+                        }
 			position++;
 		} while (istZiffer(peek()) || peek() == '.');
-
+                if (fl=true)
+                {
+                    float kZahl = Float.parseFloat(zahlAlsString);
+                    tokenListe.add(new Token(kZahl));
+                }
+                else{
+                    int gZahl = Integer.parseInt(zahlAlsString);
+                    tokenListe.add(new Token(gZahl));
+                }
 		/**
 		 * Hier machen wir es uns leicht und lassen Java den String in eine Zahl
 		 * konvertieren. Die Methode parseDouble ist fuer sich genommen natuerlich
 		 * auch ein Lexer.
 		 */
-		double zahl = Double.parseDouble(zahlAlsString);
+//		double zahl = Double.parseDouble(zahlAlsString);
 
-		tokenListe.add(new Token((int) zahl));
+
 
 	}
 
