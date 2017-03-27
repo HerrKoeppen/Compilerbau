@@ -98,12 +98,14 @@ public class Parser {
 		 * Eine Anweisung beginnt mit whileKeyword, printKeyword oder text:
 		 */
 		switch (peek()) {
-		case whileKeyword:
+		case whileSchleife:
 			return wiederholung();
-		case printKeyword:
+		case printWord:
 			return print();
-		case text:
-			return zuweisung();
+                case hole:
+                        return hole();
+		case zuweisen:
+			return zuweisen();
 		default:
 			return null;
 		}
@@ -119,7 +121,7 @@ public class Parser {
 	 */
 	private Knoten print() throws Exception {
 
-		Knoten knoten = new Knoten(erwarte(TokenType.printKeyword));
+		Knoten knoten = new Knoten(erwarte(TokenType.printWord));
 
 		erwarte(TokenType.klammerAuf);
 
@@ -134,6 +136,10 @@ public class Parser {
 		return knoten;
 
 	}
+        
+        private Knoten hole() throws Exception {
+                
+        }
 
 	/**
 	 * Die Methode geht davon aus, dass das n�chste Token vom Typ whileKeyword
@@ -144,7 +150,7 @@ public class Parser {
 	 */
 	private Knoten wiederholung() throws Exception {
 
-		Knoten knoten = new Knoten(erwarte(TokenType.whileKeyword));
+		Knoten knoten = new Knoten(erwarte(TokenType.whileSchleife));
 
 		erwarte(TokenType.klammerAuf);
 
@@ -171,11 +177,11 @@ public class Parser {
 	 * @return
 	 * @throws Exception
 	 */
-	private Knoten zuweisung() throws Exception {
+	private Knoten zuweisen() throws Exception {
 
 		Knoten linkeSeite = new Knoten(nextToken());
 
-		Knoten knoten = new Knoten(erwarte(TokenType.zuweisung));
+		Knoten knoten = new Knoten(erwarte(TokenType.zuweisen));
 
 		Knoten rechteSeite = aussage();
 
