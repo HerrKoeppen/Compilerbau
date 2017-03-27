@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 import lexer.TokenType;
 
-import parser.Knoten;
 
 public class Interpreter {
 
@@ -138,8 +137,11 @@ public class Interpreter {
                         case klaus:
                                 return null;
                                 
-			case zahl:
-				return knoten.getToken().getZahl();
+			case gZahl:
+				return knoten.getToken().getGZahl();
+                        
+                        case kZahl:
+                                return knoten.getToken().getKZahl();
                                 
                         case liste:
                                 knoten.getRechts().add(knoten.getLinks());
@@ -187,11 +189,11 @@ public class Interpreter {
 				return wert1;
                         
                         case hole:
-                                return interpretiere(knoten.getLinks);
+                                return interpretiere(knoten.getLinks());
                         
                         case falls:
                             if (interpretiere(knoten.getLinks)){
-                                interpretiere(knoten.getRechts);
+                                interpretiere(knoten.getRechts());
                             }
                             interpretiere(knoten.getNaechsteAnweisung());
                         
