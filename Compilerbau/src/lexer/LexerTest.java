@@ -7,8 +7,9 @@ public class LexerTest {
 		
 		try {
 		
-			Lexer l = new Lexer("a = 1;\nb = 2;\nwhile(a < 10){\n  a = a + 1;\n  b = b * 2;\n  print(b);\n}");
-			
+			Lexer l = new Lexer("a = 1.22;\nb = 2;\nwhile(a < 10){\n  a = a + 1;\n  b = b * 2;\n  print(b);\n}");
+
+                        
 			l.lex();
 
 			System.out.println(l);

@@ -5,45 +5,51 @@ public class Token {
 	private TokenType tokenType; 		// Art des Tokens (z.B. zahl, klammerAuf usw.)
 	private int gZahl;			// Wird nur belegt, wenn tokenType == ganze Zahl
 	private float kZahl;                    // Wird nur belegt, wenn tokenType == Kommazahl
-        private String string;                    // Wird nur belegt, falls tokenType == bezeichner
+        private String text;                    // Wird nur belegt, falls tokenType == bezeichner
 	
-	public Token(int gZahl)
-        {
-		this.gZahl = gZahl;
-		tokenType = TokenType.gZahl;
-	}
-	
-	public Token(String string)
-        {
-		this.string = string;
-		tokenType = TokenType.string;
-	}
-        
         public Token(float kZahl)
         {
             this.kZahl = kZahl;
             tokenType = TokenType.kZahl;
         }
+        
+	public Token(int gZahl)
+        {
+            this.gZahl = gZahl;
+            tokenType = TokenType.gZahl;
+	}
+	
+	public Token(String text)
+        {
+            this.text = text;
+            tokenType = TokenType.text;
+	}
+        
 	
 	public Token(TokenType tokenType)
         {
-		this.tokenType = tokenType;
+            this.tokenType = tokenType;
 	}
 
 	public TokenType getTokenType() 
         {
-		return tokenType;
+            return tokenType;
 	}
 
-	public int getZahl() 
+	public int getGZahl() 
         {
-		return gZahl;
+            return gZahl;
 	}
 
 	public String getText() 
         {
-		return string;
+            return text;
 	}
+        
+        public float getKZahl()
+        {
+            return kZahl;
+        }
 	
 	/**
 	 * Die toString()-Methode dient nur Debuggingzwecken
@@ -60,8 +66,8 @@ public class Token {
 			break;
                 case kZahl:
                         s += "[" + kZahl + "]";
-		case string:
-			s += "[" + string + "]";
+		case text:
+			s += "[" + text + "]";
 			break;
 		default:
 			break;
