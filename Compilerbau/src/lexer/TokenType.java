@@ -1,11 +1,11 @@
 package lexer;
 
 public enum TokenType {
-	kZahl, gZahl, string, plus, minus, mal, geteilt, klammerAuf, klammerZu, 
+	kZahl, gZahl, text, plus, minus, mal, geteilt, klammerAuf, klammerZu, 
 	geschweifteKlammerAuf, geschweifteKlammerZu,
-	whileKeyword, printKeyword,
-	kleiner, groesser, identisch, kleinergleich, groessergleich, ungleich,
-	zuweisung,
+	whileSchleife, printWord,
+	kleinerAls, groesserAls, gleich, kleinerGleich, groesserGleich, nichtGleich,
+	zuweisen,
 	trueKeyword, falseKeyword,
 	strichpunkt,
 	

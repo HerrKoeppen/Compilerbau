@@ -53,7 +53,7 @@ public class Lexer {
 		while (position < text.length()) {
 
 			/**
-			 * peek() liest das n�chste Zeichen im Programmtext, erh�ht die
+			 * peek() liest das naechste Zeichen im Programmtext, erhoeht die
 			 * Variable position aber nicht. Ruft man peek() mehrmals
 			 * hintereinander auf, liefert es also immer dasselbe Zeichen.
 			 */
@@ -94,23 +94,23 @@ public class Lexer {
 					break;
 				case '<':
 					if(peek(1) == '='){
-						addToken(TokenType.kleinergleich);
+						addToken(TokenType.kleinerGleich);
 						position++;
 					} else {
-						addToken(TokenType.kleiner);
+						addToken(TokenType.kleinerAls);
 					}
 					break;
 				case '>':
 					if(peek(1) == '='){
-						addToken(TokenType.groessergleich);
+						addToken(TokenType.groesserGleich);
 						position++;
 					} else {
-						addToken(TokenType.groesser);
+						addToken(TokenType.groesserAls);
 					}
 					break;
 				case '!':
 					if(peek(1) == '='){
-						addToken(TokenType.ungleich);
+						addToken(TokenType.nichtGleich);
 						position++;
 					} else {
 						throw new Exception("Das Zeichen = wird erwartet.");
@@ -118,10 +118,10 @@ public class Lexer {
 					break;
 				case '=':
 					if(peek(1) == '='){
-						addToken(TokenType.identisch);
+						addToken(TokenType.gleich);
 						position++;
 					} else {
-						addToken(TokenType.zuweisung);
+						addToken(TokenType.zuweisen);
 					}
 					break;
 
@@ -147,7 +147,7 @@ public class Lexer {
 	}
 
 	/**
-	 * Die Methode lexVariable geht davon aus, dass das n�chste zu verarbeitende
+	 * Die Methode lexVariable geht davon aus, dass das naechste zu verarbeitende
 	 * Zeichen ein Buchstabe ist. Solange weitere Buchstaben oder Ziffern
 	 * kommen, liest sie sie und setzt sie zu einem Text zusammen.
 	 */
@@ -169,10 +169,10 @@ public class Lexer {
 			tokenListe.add(new Token(TokenType.falseKeyword));
 			break;
 		case "while":
-			tokenListe.add(new Token(TokenType.whileKeyword));
+			tokenListe.add(new Token(TokenType.whileSchleife));
 			break;
 		case "print":
-			tokenListe.add(new Token(TokenType.printKeyword));
+			tokenListe.add(new Token(TokenType.printWord));
 			break;
 		default:
 			tokenListe.add(new Token(text));
@@ -196,7 +196,7 @@ public class Lexer {
 
 		/**
 		 * Hier machen wir es uns leicht und lassen Java den String in eine Zahl
-		 * konvertieren. Die Methode parseDouble ist f�r sich genommen nat�rlich
+		 * konvertieren. Die Methode parseDouble ist fuer sich genommen natuerlich
 		 * auch ein Lexer.
 		 */
 		double zahl = Double.parseDouble(zahlAlsString);
@@ -216,7 +216,7 @@ public class Lexer {
 	}
 
 	/**
-	 * peek() liest das n�chste Zeichen im Programmtext, erh�ht die Variable
+	 * peek() liest das naechste Zeichen im Programmtext, erhoeht die Variable
 	 * position aber nicht. Ruft man peek() mehrmals hintereinander auf, liefert
 	 * es also immer dasselbe Zeichen.
 	 * 
