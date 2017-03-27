@@ -1,13 +1,16 @@
 package lexer;
 
 public enum TokenType {
-	kZahl, gZahl, text, plus, minus, mal, geteilt, klammerAuf, klammerZu, 
+	kZahl, gZahl, liste, text, zeichen, plus, minus, mal, geteilt, klammerAuf, klammerZu, 
 	geschweifteKlammerAuf, geschweifteKlammerZu,
 	whileSchleife, printWord,
 	kleinerAls, groesserAls, gleich, kleinerGleich, groesserGleich, nichtGleich,
 	zuweisen,
-	trueKeyword, falseKeyword,
+	bool,
 	strichpunkt,
+        klaus,
+        hole,
+        falls, sonst, ansonsten,
 	
 	/**
 	 * Nur als Knotentyp f�r Knoten des Syntaxbaums:
