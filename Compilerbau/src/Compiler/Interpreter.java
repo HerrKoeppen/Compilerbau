@@ -168,7 +168,7 @@ public class Interpreter {
 
 				return null;
 
-			case setze:
+			case zuweisen:
 				String variablenbezeichner1 = knoten.getLinks().getToken()
 						.getText();
 
@@ -195,14 +195,10 @@ public class Interpreter {
                             }
                             interpretiere(knoten.getNaechsteAnweisung());
                         
-                        case sonst:
-                           
-                            
-                        case forSchleife:
-                            for (interpretiere(knoten.getLinks())) {
-                                interpretiere(knoten.getRechts());
-                            }
-                            interpretiere(knoten.getNaechsteAnweisung());         
+//                        case negfalls:
+//                            if (!interpretiere(knoten.getLinks)){
+//                                interpretiere(knoten.getRechts);
+//                            }                              
                                         
 
 //			case printKeyword:
