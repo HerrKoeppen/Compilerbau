@@ -2,8 +2,6 @@ package Compiler;
 
 import java.util.ArrayList;
 
-import lexer.Token;
-import lexer.TokenType;
 
 public class Parser {
 
