@@ -5,8 +5,6 @@
  */
 package Compiler;
 
-import lexer.Token;
-
 /**
  *
  * @author kiara.jung
