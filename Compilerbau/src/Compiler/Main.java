@@ -18,9 +18,14 @@ public class Main {
     public static void main(String args[]) throws IOException, Exception{
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String input = in.readLine();
+        System.out.println("input:"+input);
         Lexer lexer = new Lexer(input);
+        lexer.lex();
+        System.out.println("lexer:"+lexer.toString());
+        System.out.println("lexer:"+lexer.getTokenListe());
         Parser parser = new Parser(lexer.getTokenListe());
         parser.parse();
+//        System.out.println("parser:"+parser.toString());
         Interpreter inter = new Interpreter();
         System.out.println(inter.interpretiere(parser.getWurzel()));
     }
