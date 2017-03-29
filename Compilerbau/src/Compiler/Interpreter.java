@@ -7,7 +7,6 @@ package Compiler;
 
 import java.util.HashMap;
 
-import lexer.TokenType;
 
 
 public class Interpreter {
