@@ -100,8 +100,8 @@ public class Parser {
 			return wiederholung();
 		case printWord:
 			return print();
-                case text:
-                        return text();
+//                case text:
+//                        return text();
 		case zuweisen:
 			return zuweisen();
 		default:
@@ -218,10 +218,10 @@ public class Parser {
 		Knoten linkerOperand = summeDifferenz(); // Versuche, eine
 													// Summe/Differenz zu finden
 
-		while (peek() == TokenType.identisch || peek() == TokenType.ungleich
-				|| peek() == TokenType.kleiner || peek() == TokenType.groesser
-				|| peek() == TokenType.kleinergleich
-				|| peek() == TokenType.groessergleich) {
+		while (peek() == TokenType.gleich || peek() == TokenType.nichtGleich
+				|| peek() == TokenType.kleinerAls || peek() == TokenType.groesserAls
+				|| peek() == TokenType.kleinerGleich
+				|| peek() == TokenType.groesserGleich) {
 
 			Token operator = nextToken();
 
@@ -308,7 +308,7 @@ public class Parser {
 			return knoten;
 		case text:
 			return new Knoten(nextToken());
-		case zahl:
+		case gZahl:
 			return new Knoten(nextToken());
 		case minus:
 			Knoten knoten1 = new Knoten(new Token(TokenType.negation));
