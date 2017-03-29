@@ -135,22 +135,23 @@ public class Parser {
 
 	}
         
-        private Knoten text() throws Exception {
-            
-            Knoten knoten = new Knoten(erwarte(TokenType.text));
-            erwarte(TokenType.klammerAuf);
-
-            Knoten text = nextToken();
-
-            erwarte(TokenType.klammerZu);
-
-            erwarte(TokenType.strichpunkt);
-
-            knoten.setLinks(text);
-
-            return knoten;
-                
-        }
+//        private Knoten text() throws Exception {
+//            erwarte(TokenType.text);
+////            Knoten knoten = new Knoten(erwarte(TokenType.text));
+//            erwarte(TokenType.klammerAuf);
+//
+//            Token text = nextToken();
+//            Knoten text = peek();
+//
+//            erwarte(TokenType.klammerZu);
+//
+//            erwarte(TokenType.strichpunkt);
+//
+//            knoten.setLinks(text);
+//
+//            return knoten;
+//                
+//        }
 
 	/**
 	 * Die Methode geht davon aus, dass das n�chste Token vom Typ whileKeyword
