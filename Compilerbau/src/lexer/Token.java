@@ -6,6 +6,8 @@ public class Token {
 	private int gZahl;			// Wird nur belegt, wenn tokenType == ganze Zahl
 	private float kZahl;                    // Wird nur belegt, wenn tokenType == Kommazahl
         private String text;                    // Wird nur belegt, falls tokenType == bezeichner
+        private boolean bool;
+        private char zeichen;
 	
         public Token(float kZahl)
         {
@@ -25,11 +27,23 @@ public class Token {
             tokenType = TokenType.text;
 	}
         
+        public Token(boolean bool)
+        {
+            this.bool =  bool;
+            tokenType = TokenType.bool;
+        }
+        
+        public Token(char zeichen)
+        {
+            this.zeichen = zeichen;
+            this.tokenType = TokenType.zeichen;
+        }
 	
 	public Token(TokenType tokenType)
         {
             this.tokenType = tokenType;
 	}
+        
 
 	public TokenType getTokenType() 
         {
@@ -49,6 +63,16 @@ public class Token {
         public float getKZahl()
         {
             return kZahl;
+        }
+        
+        public boolean getBool()
+        {
+            return bool;
+        }
+        
+        public char getChar()
+        {
+            return zeichen;
         }
 	
 	/**

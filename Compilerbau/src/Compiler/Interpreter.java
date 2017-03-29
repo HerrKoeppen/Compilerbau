@@ -143,8 +143,8 @@ public class Interpreter {
                         case kZahl:
                                 return knoten.getToken().getKZahl();
                                 
-                        case liste:
-                                knoten.getRechts().add(knoten.getLinks());
+//                        case liste:
+//                                knoten.getRechts().add(knoten.getLinks());
 
 			case whileSchleife:
 				/**
@@ -192,7 +192,9 @@ public class Interpreter {
                                 return interpretiere(knoten.getLinks());
                         
                         case falls:
-                            if (interpretiere(knoten.getLinks)){
+                            boolean bed;
+                            bed = (Boolean) interpretiere(knoten.getLinks());
+                            if (bed){
                                 interpretiere(knoten.getRechts());
                             }
                             interpretiere(knoten.getNaechsteAnweisung());
