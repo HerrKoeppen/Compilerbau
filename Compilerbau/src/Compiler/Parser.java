@@ -102,8 +102,8 @@ public class Parser {
 			return wiederholung();
 		case printWord:
 			return print();
-                case hole:
-                        return hole();
+                case text:
+                        return text();
 		case zuweisen:
 			return zuweisen();
 		default:
@@ -137,7 +137,20 @@ public class Parser {
 
 	}
         
-        private Knoten hole() throws Exception {
+        private Knoten text() throws Exception {
+            
+            Knoten knoten = new Knoten(erwarte(TokenType.text));
+            erwarte(TokenType.klammerAuf);
+
+            Knoten text = nextToken();
+
+            erwarte(TokenType.klammerZu);
+
+            erwarte(TokenType.strichpunkt);
+
+            knoten.setLinks(text);
+
+            return knoten;
                 
         }
 
